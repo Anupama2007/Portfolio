@@ -74,7 +74,7 @@
   .container {
     flex-direction: column; 
   }
-  .sidebar {
+.sidebar {
     position: static; 
     width: 100%;
     height: auto;
@@ -82,13 +82,14 @@
     padding: 15px;
     text-align: center;
   }
-  .sidebar nav ul {
-    display: flex;
-    justify-content: center; 
-    flex-wrap: wrap; 
+   .sidebar nav ul {
+    flex-direction: column; /* stack items vertically */
+    align-items: center;    /* center the list items */
+    gap: 10px;              /* optional spacing between items */
   }
+
   .sidebar nav ul li {
-    margin: 10px 15px;
+    margin: 8px 0; /* top-bottom spacing for list items */
   }
   main {
     margin-left: 0; 
@@ -801,21 +802,6 @@ main {
     </main>
   </div>
 
-  <!-- Modal for enlarged certificate -->
-  <div id="cert-modal" class="modal" onclick="closeCertificate()">
-    <img id="modal-img" src="" alt="Certificate" />
-  </div>
-<script>
-    function showCertificate(imgPath) {
-  const modal = document.getElementById("cert-modal");
-  const modalImg = document.getElementById("modal-img");
-  modalImg.src = imgPath;
-  modal.style.display = "flex";
-}
-
-function closeCertificate() {
-  document.getElementById("cert-modal").style.display = "none";
-}
 
 src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js";
 
