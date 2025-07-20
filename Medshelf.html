@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedShelf – Medicine Organizer & Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ecaee9;
+      color: #1a1a1a;
+      padding: 3rem 10%;
+    }
+     h2 {
+      font-weight: 600;
+      color: #0a0a0a;
+    
+    }
+    h1{
+         background-color: #f307a4;
+         border-radius:5px;
+         color:white;
+         font-weight:600;
+         text-align:center;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    .highlight {
+      color: #0c69f8;
+      font-weight: bold;
+    }
+    ul {
+      margin-left: 2rem;
+      margin-top: 1rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    .tech-stack {
+      background-color: #edf2ff;
+      padding: 1rem;
+      border-left: 4px solid #0c69f8;
+      margin-top: 1rem;
+    }
+    .images-row {
+      display: flex;
+      gap: 2px;
+      margin-top: 2rem;
+    }
+    .images-row img {
+      width: 36%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .github-link {
+      display: inline-block;
+      margin-top: 2rem;
+      background-color: #0c69f8;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .github-link:hover {
+      background-color: #0647b8;
+    }
+  </style>
+</head>
+<body>
+  <h1>MedShelf – Medicine Organizer & Tracker</h1><br>
+
+  <section>
+    <h2>Problem Statement</h2><br>
+    <p>Many individuals and households struggle with managing their medicine inventory effectively. People often forget expiry dates, misplace essential medications, or realize too late that they are out of stock. This leads to health risks, wastage of expired medicines, and unnecessary last-minute stress in emergencies.</p>
+  </section>
+
+  <section>
+    <h2> Objective</h2><br>
+    <p>The primary objective of <strong>MedShelf</strong> is to provide users with a smart, intuitive, and user-friendly web-based solution to manage their personal or family medicine inventory. It aims to help users:</p>
+    <ul>
+      <li>Track expiry dates and stock levels of medicines.</li>
+      <li>Receive timely alerts for low stock or upcoming expirations.</li>
+      <li>Organize and manage medicine information seamlessly.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Key Features</h2><br>
+    <ul>
+      <li><strong>Easy Medicine Entry</strong>: Add new medicines with relevant details like name, quantity, and expiry date.</li>
+      <li><strong>Expiry Date Tracking</strong>: Get notified before medicines expire to avoid waste and health risks.</li>
+      <li><strong>Smart Alerts & Notifications</strong>: Automatic reminders for low stock and expiring medications.</li>
+      <li> <strong>Visual Dashboard</strong>: Graphical and tabular overview of current inventory status.</li>
+      <li><strong>Medicine History Management</strong>: (Future Scope) Keep a log of past medicine usage and replacements.</li>
+      <li><strong>Responsive Design</strong>: Accessible and usable on both mobile and desktop devices.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2> Tech Stack</h2><br>
+    <div class="tech-stack">
+      <strong>Frontend:</strong>
+      <ul>
+        <li>HTML5 – Structure of the webpage.</li>
+        <li>CSS3 – Styling and layout for responsive design.</li>
+        <li>JavaScript – Client-side interactivity and alerts.</li>
+      </ul>
+      
+      <strong>Additional Tools:</strong>
+      <ul>
+        <li>IndexedDB / localStorage – For local medicine data storage.</li>
+        <li>Chart.js – For interactive dashboards.</li>
+        <li>Service Workers – PWA support for offline use.</li>
+      </ul>
+      <strong>Backend (Future Development):</strong>
+      <ul>
+        <li>Node.js + Express.js – API and backend server.</li>
+        <li>MongoDB / Firebase – Medicine records and user data.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="images-row">
+    <img src="image7.jpg" alt="MedShelf Home UI">
+    <img src="image8.jpg" alt="Smart Alerts Example">
+    <img src="image9.jpg" alt="Visual Dashboard View">
+  </div>
+
+  <a class="github-link" href="https://github.com/Anupama2007/Medshelf--Medicine-Tracker" target="_blank">
+     View on GitHub
+  </a>
+</body>
+</html>

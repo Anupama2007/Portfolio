@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Core Subjects | Anupama Kumari</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9fb;
+      color: #222;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-align: left;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px 20px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Core Computer Science Subjects</h1>
+
+    <div class="subjects-grid">
+      <div class="card">
+        <img src="oops.png" alt="OOPs">
+        <div class="card-content">
+          <h3>Object-Oriented Programming</h3>
+          <p>Mastered principles like encapsulation, inheritance, and polymorphism using C++ and Java.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="os.png" alt="Operating System">
+        <div class="card-content">
+          <h3>Operating System</h3>
+          <p>Strong understanding of process scheduling, memory management, and file systems.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="dbms.png" alt="DBMS">
+        <div class="card-content">
+          <h3>Database Management Systems</h3>
+          <p>Skilled in ER modeling, SQL, normalization, and relational algebra concepts.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="toc.jpg" alt="Theory of Computation">
+        <div class="card-content">
+          <h3>Theory of Computation</h3>
+          <p>Learned automata theory, regular languages, Turing machines, and decidability.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="cn.jpg" alt="Computer Networks">
+        <div class="card-content">
+          <h3>Computer Networks</h3>
+          <p>Understood network layers, TCP/IP, routing algorithms, and socket programming basics.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="ca.jpg" alt="Computer Architecture">
+        <div class="card-content">
+          <h3>Computer Architecture</h3>
+          <p>Familiar with instruction cycle, pipelining, memory hierarchy, and CPU design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

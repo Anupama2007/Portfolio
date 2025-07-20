@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Command Palette</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0f1117;
+      color: #f8f8f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #8be9fd;
+      margin-bottom: 30px;
+    }
+
+    #command-palette {
+      width: 100%;
+      max-width: 700px;
+      background: #1e212b;
+      border: 1px solid #44475a;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    #skill-search {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      background: #282a36;
+      border: none;
+      color: #f8f8f2;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    #suggestions {
+      list-style: none;
+      margin: 10px 0 0 0;
+      padding: 0;
+    }
+
+    #suggestions li {
+      padding: 10px 16px;
+      background-color: #44475a;
+      margin-top: 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #suggestions li:hover {
+      background-color: #6272a4;
+    }
+
+    #skill-result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #1e212b;
+      border: 1px solid #44475a;
+      border-radius: 8px;
+    }
+
+    #skill-result h3 {
+      margin-top: 0;
+      color: #50fa7b;
+    }
+
+    #skill-projects li {
+      margin-bottom: 6px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Command Palette: Skill Explorer</h1>
+  <div id="command-palette">
+    <input type="text" id="skill-search" placeholder="Type any of my skills name to know my experience in it...">
+    <ul id="suggestions"></ul>
+  </div>
+
+  <div id="skill-result" class="hidden">
+    <h3 id="skill-title"></h3>
+    <p id="skill-description"></p>
+    <ul id="skill-projects"></ul>
+  </div>
+
+  <script>
+   const skills = {
+  html: {
+    title: "HTML",
+    description:
+      "I have a strong foundation in semantic HTML5, enabling me to structure content effectively for accessibility and SEO. I've built forms, used audio/video tags, and designed layouts with consistent structure. My work includes building landing pages, interactive interfaces, and hackathon platforms. I prioritize clean and readable markup that forms the backbone of every web app. I also understand ARIA roles and document flow well.",
+    projects: ["AI Parrot UI", "Portfolio Website", "TimeCapsule", "Medshelf"]
+  },
+  css: {
+    title: "CSS",
+    description:
+      "Skilled in modern CSS3, including Flexbox, Grid, and responsive design with media queries. I build aesthetic, animated UIs with hover effects, transitions, and keyframes. I'm comfortable using utility-first design principles and component styling. I often use mobile-first design approaches to ensure smooth UX. I’ve also styled multi-theme pages with BEM and variables.",
+    projects: ["Animated Landing Pages", "Portfolio Styling", "Game UI Design"]
+  },
+  js: {
+    title: "JavaScript",
+    description:
+      "Strong grasp of ES6+, closures, DOM manipulation, and event-driven programming. Built interactive games, single-page tools, and dynamic features using vanilla JS. Comfortable working with APIs, localStorage, and async/await. I focus on writing modular, reusable code. Projects also include JS-heavy UIs and speech-interactive games.",
+    projects: ["AI Parrot Game", "To-Do App", "Time Capsule Logic"]
+  },
+  nodejs: {
+    title: "Node.js",
+    description:
+      "Developed robust RESTful APIs using Node.js and Express, handling routing, middleware, JWT auth, and error handling. Integrated Node backends with databases like MongoDB and SQLite. I’ve also built CLI tools and utility scripts. I’m confident working with modules, environment configs, and deployment scripts. Familiar with nodemailer, pdfkit, and websocket integrations.",
+    projects: ["AI Parrot Backend", "Rental Safety System", "Hackathon APIs"]
+  },
+  reactjs: {
+    title: "React.js",
+    description:
+      "Built component-based UIs using React functional components, hooks (useState, useEffect), and context API for global state. Implemented routing, API fetching, and conditional rendering. I prioritize reusable code and atomic design. Experienced with props drilling, lifting state, and custom hooks. Also explored charts, animations, and responsive grids.",
+    projects: ["React Portfolio", "Travel Dashboard", "Admin Panel"]
+  },
+  mongodb: {
+    title: "MongoDB",
+    description:
+      "Designed flexible, scalable schemas and implemented CRUD operations with Mongoose. Built collections for session tracking, user data, and nested documents. Familiar with indexing, aggregation pipelines, and schema validation. I’ve connected it with Node.js and Flask for backend apps. Also explored basic Atlas deployment.",
+    projects: ["AI Parrot Data Storage", "Time Capsule Persistence"]
+  },
+  sql: {
+    title: "SQL",
+    description:
+      "Worked with MySQL and SQLite for relational data needs. Designed normalized schemas, wrote joins, groupings, and subqueries. Built dashboards and analytics pipelines using SQL queries. Familiar with constraints, foreign keys, and data migrations. Used SQL in both backend servers and standalone reporting tasks.",
+    projects: ["Health Dashboard", "Rent Tracking Tool", "Interview Prep Queries"]
+  },
+  machinelearning: {
+    title: "Machine Learning",
+    description:
+      "Built ML models for classification, bias detection, and reinforcement learning. Trained pipelines using scikit-learn and TensorFlow. Experience includes preprocessing, model tuning, evaluation, and deployment. Worked on AI behavior logic based on feedback loops. Comfortable integrating models into web apps via Flask APIs.",
+    projects: ["Bias Detection in AI Parrot", "ML Game Engine", "Retraining AI"]
+  },
+  flask: {
+    title: "Flask",
+    description:
+      "Used Flask for building lightweight REST APIs and ML model serving. Built encrypted messaging and capsule access apps. Handled routing, templating, form validation, and file serving. Worked with JSON payloads and client-server integrations. Also deployed test versions of Flask apps locally and on Replit.",
+    projects: ["Time Capsule App", "Bias Detector API", "Mini Web Tools"]
+  },
+  dsa: {
+    title: "DSA",
+    description:
+      "Solved 400+ problems across LeetCode, GFG, and Codeforces. Strong in recursion, DP, graph traversal, backtracking, and arrays/strings. Regularly practice time-space optimized solutions. Familiar with sliding window, prefix-suffix, and binary search techniques. Use Python, C++, and Java interchangeably based on problem domain.",
+    projects: ["DSA Tracker", "Custom Problem Set App"]
+  },
+  c: {
+    title: "C",
+    description:
+      "Learned low-level memory manipulation, pointer arithmetic, and structured programming. Created mini projects like file-based databases and shell clones. Gained clarity in loops, conditionals, and manual memory management. Explored basics of OS and compiler internals. Used C for fundamental problem-solving early in college.",
+    projects: ["Bank Management CLI", "Mini Shell Emulator"]
+  },
+  cpp: {
+    title: "C++",
+    description:
+      "Used extensively for competitive programming and solving DSA questions. Proficient in STL containers, iterators, and algorithms. Implemented graph algorithms, DP memoization, and class-based solutions. Strong in OOP concepts with inheritance and abstraction. Built simulation-based problems using classes and templates.",
+    projects: ["CP Practice", "Algorithm Templates"]
+  },
+  java: {
+    title: "Java",
+    description:
+      "Comfortable with OOP principles, exception handling, and collections in Java. Wrote academic projects and practiced class-based problem-solving. Worked with file I/O, interfaces, and inheritance. Good understanding of syntax and Java coding practices. Explored some Android dev basics as well.",
+    projects: ["OOP Projects", "File-Based Programs"]
+  },
+  python: {
+    title: "Python",
+    description:
+      "Go-to language for ML, automation, and scripting. Built APIs, encrypted systems, ML pipelines, and parsing tools. Deep understanding of Pythonic practices, modular code, and standard libraries. Used extensively for both backend and research work. Comfortable with libraries like pandas, NumPy, cryptography, scikit-learn.",
+    projects: ["Time Capsule Encryption", "Bias Detector", "ML API"]
+  }
+};
+
+
+    const input = document.getElementById("skill-search");
+    const suggestions = document.getElementById("suggestions");
+    const resultBox = document.getElementById("skill-result");
+
+    input.addEventListener("input", () => {
+      const val = input.value.toLowerCase();
+      suggestions.innerHTML = "";
+
+      Object.keys(skills).forEach(skill => {
+        if (skill.includes(val) && val.length > 0) {
+          const li = document.createElement("li");
+          li.textContent = skills[skill].title;
+          li.onclick = () => showSkill(skill);
+          suggestions.appendChild(li);
+        }
+      });
+    });
+
+    function showSkill(skillKey) {
+      const skill = skills[skillKey];
+      document.getElementById("skill-title").textContent = skill.title;
+      document.getElementById("skill-description").textContent = skill.description;
+
+      const projList = document.getElementById("skill-projects");
+      projList.innerHTML = "";
+      skill.projects.forEach(p => {
+        const li = document.createElement("li");
+        li.textContent = p;
+        projList.appendChild(li);
+      });
+
+      resultBox.classList.remove("hidden");
+      suggestions.innerHTML = "";
+      input.value = "";
+    }
+  </script>
+</body>
+</html>

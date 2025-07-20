@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TimeCapsule – Encrypted Digital Time Locker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfdfd;
+      color: #1c1c1c;
+      padding: 3rem 10%;
+    }
+    h1, h2 {
+      font-weight: 600;
+      color: #0a0a0a;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    ul {
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    .highlight {
+      color: #0c69f8;
+      font-weight: bold;
+    }
+    .tech-box {
+      background-color: #eaf1ff;
+      padding: 1rem;
+      border-left: 5px solid #0c69f8;
+      margin-top: 1rem;
+    }
+    .image-row {
+      display: flex;
+      gap: 2px;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .image-row img {
+      width: 48%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .github-button {
+      display: inline-block;
+      margin-top: 2rem;
+      background-color: #0c69f8;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .github-button:hover {
+      background-color: #0845b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>TimeCapsule – Your Own Encrypted Digital Alarm Capsule</h1>
+
+  <section>
+    <h2>Problem Statement</h2>
+    <p>In the digital age, people often want to preserve memories, messages, or secrets for future reflection. However, there is no secure, private, and user-controlled digital solution that allows individuals to "lock" their thoughts or messages until a specific future date. Without encryption or control, such content can be exposed, lost, or accessed prematurely.</p>
+  </section>
+
+  <section>
+    <h2>Objective</h2>
+    <p><strong>TimeCapsule</strong> offers a simple, secure, and personal tool to write encrypted memories or notes, unlocking them only on a future date. It simulates the traditional concept of a time capsule using modern encryption techniques for complete confidentiality.</p>
+  </section>
+
+  <section>
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Fernet Encryption</strong>: Uses AES-based Fernet encryption to lock messages securely.</li>
+      <li><strong>Time-Locked Access</strong>: Messages can't be read before the chosen unlock date.</li>
+      <li><strong>Secure Key Management</strong>: Encryption keys are auto-generated and securely stored.</li>
+      <li><strong>Date Validation</strong>: Prevents invalid dates and premature access.</li>
+      <li><strong>Simple CLI Interface</strong>: Terminal-based, easy-to-use tool for writing and reading capsules.</li>
+      <li><strong>Persistent Storage</strong>: Saves encrypted capsules in local JSON files for long-term use.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2> Tech Stack</h2>
+    <div class="tech-box">
+      <strong>Language:</strong> Python<br/><br/>
+      <strong>Libraries Used:</strong>
+      <ul>
+        <li><code>cryptography</code> – For Fernet (AES-based) encryption & decryption</li>
+        <li><code>datetime</code> – For future-date validation</li>
+        <li><code>os</code> – For file handling</li>
+        <li><code>json</code> – For storing capsule metadata</li>
+      </ul>
+      <strong>Data Storage:</strong>
+      <ul>
+        <li><code>secret.key</code> – Stores encryption key</li>
+        <li><code>capsule_data.json</code> – Holds encrypted capsules and related info</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="image-row">
+    <img src="image 10.jpg" alt="CLI to create time capsule">
+    <img src="image 11.jpg" alt="Capsule unlock process">
+  </div>
+
+  <a class="github-button" href="https://github.com/Anupama2007/Time-capsule" target="_blank">
+     View on GitHub
+  </a>
+</body>
+</html>

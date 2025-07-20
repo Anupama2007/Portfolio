@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anupama Kumari | Portfolio</title>
+  <!-- Flickity CSS -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* For screens smaller than 1200px (e.g., smaller desktops, laptops)*/
+@media (max-width: 1199px) {
+  .sidebar {
+    width: 180px; 
+  }
+  main {
+    margin-left: 200px; 
+  }
+  .hero-banner .hero-text h1 {
+    font-size: 32px;
+  }
+  .hero-banner .hero-text p {
+    font-size: 18px;
+  }
+  .cards {
+    gap: 20px;
+  }
+  .card {
+    width: 300px; 
+  }
+}
+
+/* For screens smaller than 992px (e.g., tablets in landscape, smaller laptops) */
+@media (max-width: 991px) {
+  .sidebar {
+    width: 100px; 
+    padding: 20px 10px;
+  }
+  .sidebar nav ul li a {
+    font-size: 16px;
+  }
+  main {
+    margin-left: 120px; 
+  }
+  .hero-banner {
+    padding: 30px;
+    height: auto;
+  }
+  .hero-banner .hero-text h1 {
+    font-size: 28px;
+  }
+  .hero-banner .hero-text p {
+    font-size: 16px;
+  }
+  .hero-banner .banner-img {
+    width: 200px;
+    height: 180px;
+  }
+  .cards {
+    justify-content: center; 
+  }
+  .card {
+    width: 280px;
+  }
+}
+
+/* For screens smaller than 768px (e.g., tablets in portrait, large phones) */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column; 
+  }
+  .sidebar {
+    position: static; 
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    padding: 15px;
+    text-align: center;
+  }
+  .sidebar nav ul {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+  }
+  .sidebar nav ul li {
+    margin: 10px 15px;
+  }
+  main {
+    margin-left: 0; 
+    padding: 20px;
+  }
+  .hero-banner {
+    flex-direction: column;
+    padding: 20px;
+    height: auto; /*  ensure no fixed height */
+    text-align: center;
+  }
+
+  .hero-banner .hero-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-banner .banner-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 16px;
+    object-fit: contain;
+    background-color: rgb(248, 249, 247);
+  }
+}
+
+  .cards {
+    gap: 15px;
+  }
+  .card {
+    width: 90%; 
+    max-width: 300px; 
+  }
+
+
+/* For screens smaller than 480px (e.g., mobile devices) */
+@media (max-width: 479px) {
+  .sidebar nav ul li {
+    margin: 8px 10px;
+  }
+  .sidebar nav ul li a {
+    font-size: 14px;
+  }
+  .hero-banner {
+    padding: 15px;
+  }
+  .hero-banner .hero-text h1 {
+    font-size: 20px;
+  }
+  .hero-banner .hero-text p {
+    font-size: 12px;
+  }
+  .hero-banner .banner-img {
+    width: 150px;
+    height: 120px;
+  }
+  .card {
+    width: 100%; 
+    max-width: 280px;
+    padding: 15px;
+  }
+}
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right, #e2d4fc, #daf0ff);
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom right, #7f8ff4, #c1c3fc);
+  padding: 30px 20px;
+  border-radius: 0 20px 20px 0;
+  position: fixed;
+  height: 100vh;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+main {
+  margin-left: 240px;
+  padding: 30px;
+  flex-grow: 1;
+}
+
+
+.hero-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background: linear-gradient(to right, #99ccff, #cc99ff);
+  flex-wrap: wrap;
+  border-radius:20px;
+  gap: 30px;
+  height: auto; /*  This is important */
+  overflow: hidden;
+}
+.hero-banner .hero-text h1 {
+  font-size: 36px;
+  color: #070608;
+}
+
+.hero-banner .hero-text p {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #070707;
+}
+
+.hero-banner .banner-img {
+  width: 280px;
+  height:220px;
+  border-radius: 16px;
+  object-fit: contain;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background-color:rgb(248, 249, 247);
+}
+
+/* Responsive fix */
+@media (max-width: 768px) {
+  .hero-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+
+/* Projects */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap:30px;
+  margin-top: 15px;
+}
+
+.card {
+  background: rgb(173, 240, 102);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 350px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.skills-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 40px 100px; /* Less vertical space */
+  margin-bottom: 10px;
+  justify-items: center;
+}
+
+.skill-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px; /* Smaller name font for neat look */
+  color: #121111;
+}
+
+.skill-icon img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+
+.skill-icon:hover img {
+  transform: scale(1.1); /* Optional: add hover animation */
+}
+.stars {
+  color: #9d08fa; /* golden yellow */
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-radius: 0;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+.carousel {
+  background: transparent;
+  margin-top:10px;
+  gap:40px 30px;
+  padding: 20px 0;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+/* Each card inside the carousel */
+.carousel-cell {
+  width: 250px;
+  margin-right: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.carousel-cell:hover {
+  transform: scale(1.05);
+}
+.card {
+  display: block;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+/* Toggle switch styling */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+.theme-toggle input {
+  display: none;
+}
+.theme-toggle .slider {
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+.theme-toggle .slider::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  background-color: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+.theme-toggle input:checked + .slider {
+  background-color: #333;
+}
+.theme-toggle input:checked + .slider::before {
+  transform: translateX(24px);
+}
+.contact-section {
+  background: #f5bdf5;
+  padding: 20px 5px 10px;
+  text-align: center;
+  border-radius:30px;
+}
+
+.contact-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+  color: #1f2937;
+}
+
+.contact-section .subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #4b5563;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: #fdfdfd;
+  border-radius: 10px;
+  padding: 8px 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex: 1 1 180px;
+  max-width: 200px;
+  min-width: 150px;
+}
+
+.contact-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+  color: #111827;
+}
+
+.contact-card p,
+.contact-card a {
+  font-size: 0.85rem;
+  color: #374151;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+.education-section {
+  background: #9df45b;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.education-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #1f2937;
+}
+
+.edu-table-container {
+  overflow-x: auto;
+}
+
+.edu-table {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #f5f3f6;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+.edu-table thead {
+  background-color: #fc7ef8;
+  color: #fff;
+}
+
+.edu-table th,
+.edu-table td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.edu-table th {
+  font-weight: 600;
+}
+
+.edu-table tbody tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
+
+.edu-table img {
+  height: 36px;
+  width: auto;
+  border-radius: 4px;
+}
+.additional-info-section {
+  background: #fcc1f9;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius:40px;
+}
+
+.additional-info-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1px;
+  color: #1e293b;
+  height:90px;
+}
+
+.info-list {
+  display: grid;
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  background: #faf9fa;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s;
+  text-align: left;
+}
+
+.info-card:hover {
+  transform: scale(1.02);
+}
+
+.info-card .emoji {
+  font-size: 1.6rem;
+  margin-top: 2px;
+}
+
+.info-card p {
+  font-size: 1rem;
+  color: #374151;
+  margin: 0;
+}
+
+.info-card a {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-card a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="command.html"> My skills journeys</a></li>
+            <li><a href="extra.html">Extracurriculars Highlights</a></li>
+             <li><a href="cs.html">Core Subjects</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          
+          
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="home" class="hero-banner">
+  <div class="hero-text">
+    <h1>Anupama Kumari</h1>
+    <p>Innovating Tech for a Better Tomorrow</p>
+  </div>
+  <img src="Anupama pic.JPG" alt="Anupama" class="banner-img" />
+</section><br>
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h2>Let's Connect</h2>
+  <p class="subtitle">I'm open to collaboration, internships, and meaningful conversations. Reach out!</p>
+
+  <div class="contact-container">
+    <div class="contact-card">
+      <h3> Location</h3>
+      <p>Muzaffarpur, Bihar, India</p>
+    </div>
+    <div class="contact-card">
+      <h3> Email</h3>
+      <a href="mailto:anupama.br2004@gmail.com">anupama.br2004@gmail.com</a>
+    </div>
+    <div class="contact-card">
+      <h3> Phone</h3>
+      <p>+91 70041 62183</p>
+    </div>
+    <div class="contact-card">
+      <h3>LinkedIn</h3>
+      <a href="https://www.linkedin.com/in/anupama-kumari-a6946b28a" target="_blank">linkedin.com/in/anupama-kumari</a>
+    </div>
+    <div class="contact-card">
+      <h3>GitHub</h3>
+      <a href="https://github.com/Anupama2007" target="_blank">github.com/Anupama2007</a>
+    </div>
+  </div>
+</section><br>
+<!-- Education Section -->
+<section id="education" class="education-section">
+  <h2>Educational Qualifications</h2>
+
+  <div class="edu-table-container">
+    <table class="edu-table">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Institution</th>
+          <th>Degree</th>
+          <th>Duration</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="logo1.jpg" alt="VIT Logo"></td>
+          <td>VIT Bhopal University, Madhya Pradesh</td>
+          <td>B.Tech in Computer Science</td>
+          <td>2023 – 2027</td>
+          <td>9.12 CGPA (ongoing)</td>
+        </tr>
+        <tr>
+          <td><img src="logo2.jpg" alt="CBSE Logo"></td>
+          <td>Indraprastha International School, Muzaffarpur, Bihar</td>
+          <td>12th (CBSE - PCM)</td>
+          <td>2021 – 2023</td>
+          <td>91.2%</td>
+        </tr>
+        <tr>
+          <td><img src="logo3.png" alt="CBSE Logo"></td>
+          <td>Sunshine Preparatory High School, Muzaffarpur, Bihar</td>
+          <td>10th (CBSE)</td>
+          <td>2019 – 2021</td>
+          <td>92.8%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+  <section id="projects">
+  <h2>Projects</h2>
+  <div class="carousel" >
+    <div class="carousel-cell">
+      <a href="aiparrot.html" target="_blank" class="card">
+        <img src="coolparrot.jpg" alt="AI Parrot" />
+        <h3>EvolveMoralMaze</h3>
+        <p>A game based approach to ethical AI teaching in AI4K12 education in USA</p>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="Innovest.html" target="_blank" class="card">
+        <img src="house.jpg" alt="Investment" />
+        <h3>Innovest</h3>
+        <p>Micro Investment platform </p>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="Medshelf.html" target="_blank" class="card">
+        <img src="medicine.png" alt="AI Waste Sorting" />
+        <h3>MedShelf</h3>
+        <p>Smart medicine organizer and tracker</p>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="TimeCapsule.html" target="_blank" class="card">
+        <img src="clock.png" alt="Ethical AI" />
+        <h3>Time Capsule</h3>
+        <p>Your Own Encrypted Digital Alarm Capsule</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2><br>
+
+  <!-- Skill Icons Grid -->
+  <div class="skills-icons">
+    <div class="skill-icon"><img src="html.jpg" alt="HTML"><span>HTML</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="css.png" alt="CSS"><span>CSS</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="js.png" alt="JavaScript"><span>JS</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="node.png" alt="Node.js"><span>Node.js</span><div class="stars">🟣🟣🟣◯◯</div></div>
+    <div class="skill-icon"><img src="React.jpg" alt="React.js"><span>React</span><div class="stars">🟣🟣🟣🟣🟣</div></div>
+    <div class="skill-icon"><img src="mongodb.png" alt="MongoDB"><span>MongoDB</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="sql.png" alt="SQL"><span>SQL</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="flask.jpg" alt="Flask"><span>Flask</span><div class="stars">🟣🟣🟣◯◯</div></div>
+    <div class="skill-icon"><img src="dsa.png" alt="DSA"><span>DSA</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="ml.png" alt="ML"><span>ML</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="c.png" alt="C"><span>C</span><div class="stars">🟣🟣🟣◯◯</div></div>
+    <div class="skill-icon"><img src="cpp.png" alt="C++"><span>C++</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="java.png" alt="Java"><span>Java</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+    <div class="skill-icon"><img src="python.png" alt="Python"><span>Python</span><div class="stars">🟣🟣🟣🟣◯</div></div>
+  </div><br>
+
+       <section id="projects">
+  <h2>Certifications</h2>
+  <div class="carousel" >
+    <div class="carousel-cell">
+      <a href="c1.jpg" target="_blank" class="card">
+        <img src="c1.jpg" alt="c1" />
+        <h3>Java (Basic) by Hackerrank</h3>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="c2.jpg" target="_blank" class="card">
+        <img src="c2.jpg" alt="c2" />
+        <h3>Javascript (Intermediate) by Hackerrank</h3>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="c3.jpg" target="_blank" class="card">
+        <img src="c3.jpg" alt="c3" />
+        <h3>Networking Basics by Cisco Networking Academy</h3>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="c4.jpg" target="_blank" class="card">
+        <img src="c4.jpg" alt="c4" />
+        <h3>Operating System by Cursa</h3>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="c5.jpg" target="_blank" class="card">
+        <img src="c5.jpg" alt="c5" />
+        <h3>Linux by cursa</h3>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="c6.jpg" target="_blank" class="card">
+        <img src="c6.jpg" alt="c6" />
+        <h3>Devops, Agile and Design Thinking by IBM</h3>
+      </a>
+    </div>
+    <div class="carousel-cell">
+      <a href="c7.jpg" target="_blank" class="card">
+        <img src="c7.jpg" alt="c7" />
+        <h3>Devops Fundamentals by IBM</h3>
+      </a>
+    </div>
+
+  </div>
+</section>
+<!-- Additional Info Section -->
+<section id="additional-info" class="additional-info-section">
+  <h2> Additional Information</h2>
+  <div class="info-list">
+
+    <div class="info-card">
+      <span class="emoji"></span>
+      <p><strong>5-Star Coder</strong> on HackerRank (C++ and Java).</p>
+    </div>
+
+    <div class="info-card">
+      <span class="emoji"></span>
+      <p>Completed <strong>100 Days of Code</strong> in the Dr G.Vishwanathan Challenge on Linkedin (Started 29 Sept 2024).</p>
+    </div>
+
+    <div class="info-card">
+      <span class="emoji"></span>
+      <p>Earned <strong>50-Day from LeetCode, placing in the top 6.9% of coders.</strong> </p>
+    </div>
+
+    <div class="info-card">
+      <span class="emoji"></span>
+      <p>Learning <strong>Japanese</strong> on Duolingo, with a <strong>276+ day streak.</strong></p>
+    </div>
+
+    <div class="info-card">
+      <span class="emoji"></span>
+      <p><strong>Hobbies</strong>: Painting and Doodling.</p>
+    </div>
+
+    <div class="info-card">
+      <span class="emoji"></span>
+      <p><strong>4th Place</strong> in doodling competition by <strong>Antique Arcade Club</strong>, VIT Bhopal (Feb 2024). </p>
+    </div>
+
+  </div>
+</section>
+
+    </main>
+  </div>
+
+  <!-- Modal for enlarged certificate -->
+  <div id="cert-modal" class="modal" onclick="closeCertificate()">
+    <img id="modal-img" src="" alt="Certificate" />
+  </div>
+<script>
+    function showCertificate(imgPath) {
+  const modal = document.getElementById("cert-modal");
+  const modalImg = document.getElementById("modal-img");
+  modalImg.src = imgPath;
+  modal.style.display = "flex";
+}
+
+function closeCertificate() {
+  document.getElementById("cert-modal").style.display = "none";
+}
+
+src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js";
+
+  </script>
+
+</body>
+</html>
